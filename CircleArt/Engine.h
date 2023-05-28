@@ -25,27 +25,27 @@ lpConsoleCurrentFontEx);
 }
 #endif
 
-#define PI                 3.1415926535897932384f
+#define PI                  3.1415926535897932384f
 
-#define BLOCK_EMPTY L' '
-#define BLOCK_FULL L'█'
+#define BLOCK_EMPTY         L' '
+#define BLOCK_FULL          L'█'
 
-#define COLOR_BLACK	       0x0000
-#define COLOR_DARK_BLUE    0x0001
-#define COLOR_DARK_GREEN   0x0002
-#define COLOR_DARK_CYAN    0x0003
-#define COLOR_DARK_RED     0x0004
-#define COLOR_DARK_MAGENTA 0x0005
-#define COLOR_DARK_YELLOW  0x0006
-#define COLOR_GREY		   0x0007
-#define COLOR_DARK_GREY    0x0008
-#define COLOR_BLUE		   0x0009
-#define COLOR_GREEN	       0x000A
-#define COLOR_CYAN		   0x000B
-#define COLOR_RED		   0x000C
-#define COLOR_MAGENTA	   0x000D
-#define COLOR_YELLOW	   0x000E
-#define COLOR_WHITE	       0x000F
+#define COLOR_BLACK         0x0000
+#define COLOR_DARK_BLUE     0x0001
+#define COLOR_DARK_GREEN    0x0002
+#define COLOR_DARK_CYAN     0x0003
+#define COLOR_DARK_RED      0x0004
+#define COLOR_DARK_MAGENTA  0x0005
+#define COLOR_DARK_YELLOW   0x0006
+#define COLOR_GREY          0x0007
+#define COLOR_DARK_GREY     0x0008
+#define COLOR_BLUE          0x0009
+#define COLOR_GREEN         0x000A
+#define COLOR_CYAN          0x000B
+#define COLOR_RED           0x000C
+#define COLOR_MAGENTA       0x000D
+#define COLOR_YELLOW        0x000E
+#define COLOR_WHITE         0x000F
 
 class Engine {
 public:

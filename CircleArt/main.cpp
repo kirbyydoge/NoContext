@@ -27,9 +27,6 @@ protected:
     using clock = std::chrono::steady_clock;
 
     virtual bool start() {
-        edge_dist = 0;
-        edge_accum = 0;
-        edge_freq = 0.1f;
         for (int i = 0; i < 7; i++) {
             ellipses.push_back({
                 10 + _width * 0.025f * i, _height * 0.5f,  4.0f, 4.5f, 0.06f * i,
@@ -40,6 +37,14 @@ protected:
                 (int)(_width * 0.05f * i), (int)(_height * 0.01f * i)
             });
         }
+        balls.push_back({
+            _width * 0.5f, _height * 0.5f,
+            6.0f, 25.0f, 0.06f, 4, 4
+        });
+        balls.push_back({
+            _width * 0.5f, _height * 0.5f,
+            6.0f, 25.0f, 0.00f, 2, 2
+        });
         color_duration = 0.55;
         color_order = {
             COLOR_YELLOW,  COLOR_DARK_YELLOW,
@@ -49,19 +54,10 @@ protected:
             COLOR_DARK_CYAN, COLOR_CYAN,
             COLOR_GREEN, COLOR_DARK_GREEN
         };
-        balls.push_back({
-            _width * 0.5f, _height * 0.5f,
-            6.0f, 25.0f, 0.06f, 4, 4
-        });
-        balls.push_back({
-            _width * 0.5f, _height * 0.5f,
-            6.0f, 25.0f, 0.00f, 2, 2
-        });
     }
 
     virtual bool update(float time_delta) {
         clear_screen();
-
         // Handle Ellipses
         for (int i = 0; i < ellipses.size(); i++) {
             kirbyy::Ellipse e = ellipses[i];
@@ -72,7 +68,6 @@ protected:
             short color = color_order[(int)(cur_step / color_duration) % color_order.size()];
             draw_ellipse(e.rx, e.ry, pos_y, pos_x, BLOCK_FULL, color);
         }
-
         // Handle Balls
         for (int i = 0; i < balls.size(); i++) {
             kirbyy::Ellipse b = balls[i];
@@ -83,15 +78,10 @@ protected:
             short color = color_order[(int)(cur_step / color_duration) % color_order.size()];
             draw_ellipse(b.rx, b.ry, pos_y, pos_x, BLOCK_FULL, color);
         }
-
-        edge_accum += time_delta;
         render();
         return true;
     }
 private:
-    int edge_dist;
-    float edge_accum;
-    float edge_freq;
     std::vector<kirbyy::Ellipse> ellipses;
     std::vector<kirbyy::Ellipse> balls;
     std::vector<short> color_order;
